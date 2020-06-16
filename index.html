@@ -9,15 +9,80 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>Work Day Scheduler</title>
+    <title>Weather Dashboard</title>
   </head>
+  <navbar>Weather Dashboard</navbar>
   <body>
-    <header class="jumbotron">
-      <h1 class="display-3">Work Day Scheduler</h1>
-      <p class="lead">A simple calendar app for scheduling your work day</p>
-      <p id="currentDay" class="lead"></p>
-    </header>
-    <div class="container"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-3">
+          <div class="box1">
+            <form class="searchForm col">
+              <input class="form-control" placeholder="Search for a city:">
+              </input>
+            </form>
+          </div>
+          <div class="box2"></div>
+        </div>
+        <div class="col-9">
+          <div class="box3">
+            <div class="card box3Card">
+              <div class="card-body">
+                <li class="card-text currentCity">currentCity</li>
+                <li class="card-text cityTemperature">cityTemperature</li>
+                <li class="card-text humidity">Humidity</li>
+                <li class="card-text windSpeed">windSpeed</li>
+                <li class="uvIndex"></li>
+              </div>
+            </div>
+          </div>
+          <div class="box4">
+            <div class="row">
+              <div class="card col mr-3 fiveDayForecastCard1">
+                <div class="card-body">
+                  <h5 class="card-title fiveDayDate1">fiveDayDate1</h5>
+                  <li class="card-text weatherIcon1">weatherIcon1</li>
+                  <li class="card-text fiveDayTemp1">fiveDayTemp1</li>
+                  <li class="card-text fiveDayHumidity1">fiveDayHumidity1</li>
+                </div>
+              </div>
+              <div class="card col mr-3 fiveDayForecastCard2">
+                <div class="card-body">
+                  <h5 class="card-title fiveDayDate2">fiveDayDate2</h5>
+                  <li class="card-text weatherIcon2">weatherIcon2</li>
+                  <li class="card-text fiveDayTemp2">fiveDayTemp2</li>
+                  <li class="card-text fiveDayHumidity2">fiveDayHumidity2</li>
+                </div>
+              </div>
+              <div class="card col mr-3 fiveDayForecastCard3">
+                <div class="card-body">
+                  <h5 class="card-title fiveDayDate3">fiveDayDate3</h5>
+                  <li class="card-text weatherIcon3">weatherIcon3</li>
+                  <li class="card-text fiveDayTemp3">fiveDayTemp3</li>
+                  <li class="card-text fiveDayHumidity3">fiveDayHumidity3</li>
+                </div>
+              </div>
+              <div class="card col mr-3 fiveDayForecastCard4">
+                <div class="card-body">
+                  <h5 class="card-title fiveDayDate4">fiveDayDate4</h5>
+                  <li class="card-text weatherIcon4">weatherIcon4</li>
+                  <li class="card-text fiveDayTemp4">fiveDayTemp4</li>
+                  <li class="card-text fiveDayHumidity4">fiveDayHumidity4</li>
+                </div>
+              </div>
+              <div class="card col fiveDayForecastCard5">
+                <div class="card-body">
+                  <h5 class="card-title fiveDayDate5">fiveDayDate5</h5>
+                  <li class="card-text weatherIcon5">weatherIcon5</li>
+                  <li class="card-text fiveDayTemp5">fiveDayTemp5</li>
+                  <li class="card-text fiveDayHumidity5">fiveDayHumidity5</li>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>    
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="script.js"></script>
   </body>
