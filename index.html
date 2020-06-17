@@ -10,16 +10,15 @@
     />
     <link rel="stylesheet" href="style.css" />
     <title>Weather Dashboard</title>
-  </head>
-  <navbar>Weather Dashboard</navbar>
+  </head>  
   <body>
+    <navbar>Weather Dashboard</navbar>
     <div class="container">
       <div class="row">
         <div class="col-3">
           <div class="box1">
             <form class="searchForm col-9">
               <input class="form-control" placeholder="Search for a city:">
-              </input>
             </form>
             <button class="btn btn-dark col-2 searchIcon">
               <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -34,14 +33,16 @@
           <div class="box3">
             <div class="card box3Card">
               <div class="card-body">
-                <li class="card-text currentCity">currentCity</li><br>
-                <li class="card-text cityTemperature">cityTemperature</li><br>
-                <li class="card-text humidity">Humidity</li><br>
-                <li class="card-text windSpeed">windSpeed</li><br>
-                <div class="uvIndexItems">
-                  <div type="li" class="uvIndex"></div>
-                  <div type="text" class="uvIndexIcon"></div>
-                </div>
+                <ul>
+                  <li class="card-text currentCity">currentCity</li><br>
+                  <li class="card-text cityTemperature">cityTemperature</li><br>
+                  <li class="card-text humidity">Humidity</li><br>
+                  <li class="card-text windSpeed">windSpeed</li><br>
+                  <div class="uvIndexItems">
+                    <div type="li" class="uvIndex"></div>
+                    <div type="text" class="uvIndexIcon"></div>
+                  </div>
+                </ul>
               </div>
             </div>
           </div>
@@ -54,41 +55,51 @@
               <div class="card col mr-3 fiveDayForecastCard1">
                 <div class="card-body">
                   <h5 class="card-title fiveDayDate1"></h5>
-                  <li class="card-text weatherIcon1"></li>
-                  <li class="card-text fiveDayTemp1"></li>
-                  <li class="card-text fiveDayHumidity1"></li>
+                  <ul>
+                    <li class="card-text weatherIcon1"></li>
+                    <li class="card-text fiveDayTemp1"></li>
+                    <li class="card-text fiveDayHumidity1"></li>
+                  </ul>
                 </div>
               </div>
               <div class="card col mr-3 fiveDayForecastCard2">
                 <div class="card-body">
                   <h5 class="card-title fiveDayDate2"></h5>
-                  <li class="card-text weatherIcon2"></li>
-                  <li class="card-text fiveDayTemp2"></li>
-                  <li class="card-text fiveDayHumidity2"></li>
+                  <ul>
+                    <li class="card-text weatherIcon2"></li>
+                    <li class="card-text fiveDayTemp2"></li>
+                    <li class="card-text fiveDayHumidity2"></li>
+                  </ul>
                 </div>
               </div>
               <div class="card col mr-3 fiveDayForecastCard3">
                 <div class="card-body">
                   <h5 class="card-title fiveDayDate3"></h5>
-                  <li class="card-text weatherIcon3"></li>
-                  <li class="card-text fiveDayTemp3"></li>
-                  <li class="card-text fiveDayHumidity3"></li>
+                  <ul>
+                    <li class="card-text weatherIcon3"></li>
+                    <li class="card-text fiveDayTemp3"></li>
+                    <li class="card-text fiveDayHumidity3"></li>
+                  </ul>
                 </div>
               </div>
               <div class="card col mr-3 fiveDayForecastCard4">
                 <div class="card-body">
                   <h5 class="card-title fiveDayDate4"></h5>
-                  <li class="card-text weatherIcon4"></li>
-                  <li class="card-text fiveDayTemp4"></li>
-                  <li class="card-text fiveDayHumidity4"></li>
+                  <ul>
+                    <li class="card-text weatherIcon4"></li>
+                    <li class="card-text fiveDayTemp4"></li>
+                    <li class="card-text fiveDayHumidity4"></li>
+                  </ul>
                 </div>
               </div>
               <div class="card col fiveDayForecastCard5">
                 <div class="card-body">
                   <h5 class="card-title fiveDayDate5"></h5>
+                  <ul>
                   <li class="card-text weatherIcon5"></li>
                   <li class="card-text fiveDayTemp5"></li>
                   <li class="card-text fiveDayHumidity5"></li>
+                  </ul>
                 </div>
               </div>
             </div>
