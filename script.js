@@ -20,15 +20,16 @@ $(document).ready(function(){
     //Initial page setup; defaults to Atlanta.
     if(localStorage.getItem("searchHistory")){
         searchInputArray.push(localStorage.getItem("searchHistory").split(","));
+        console.log(searchInputArray)
         searchInput = searchInputArray[0][searchInputArray[0].length-1];
-        for(i=searchInputArray[0].length-1;i>-1;i--){
+        for(i=0;i<searchInputArray[0].length;i++){
             var newButton = document.createElement("button");
             newButton.textContent = searchInputArray[0][i];
             $(newButton).addClass("btn btn-dark col-12 searchButton");
-            $(newForm).append(newButton);
+            $(newForm).prepend(newButton);
         }
         $.ajax({
-            url: "https://api.openweathermap.org/data/2.5/weather?q="+searchInputArray[0][searchInputArray.length-1]+"&units=imperial&appid=da0d8ead8e11a7c6ac8547cdc2d96e73",
+            url: "https://api.openweathermap.org/data/2.5/weather?q="+searchInput+"&units=imperial&appid=da0d8ead8e11a7c6ac8547cdc2d96e73",
             method: "get"
         }).then(function(response){
         var currentCity1 = searchInputArray[0][searchInputArray.length-1];
@@ -52,7 +53,23 @@ $(document).ready(function(){
             url: "https://api.openweathermap.org/data/2.5/uvi?appid=da0d8ead8e11a7c6ac8547cdc2d96e73&units=imperial&lat="+latitude+"&lon="+longitude,
             method: "get"
             }).then(function(response){
-                $(".uvIndex").html("UV Index: "+response.value);
+                $(".uvIndex").html("UV Index: ");
+                $(".uvIndexIcon").html(response.value);                
+                if(response.value>0&&response.value<2){
+                    $(".uvIndexIcon").css("background-color","#209700");
+                }
+                if(response.value>=2&&response.value<6){
+                    $(".uvIndexIcon").css("background-color","#f8e600");
+                }
+                if(response.value>=6&&response.value<8){
+                    $(".uvIndexIcon").css("background-color","#fb5800");
+                }
+                if(response.value>=8&&response.value<11){
+                    $(".uvIndexIcon").css("background-color","#db0000");
+                }
+                if(response.value>=11){
+                    $(".uvIndexIcon").css("background-color","6b43cb");
+                }
                 }).then(function(){
                 $.ajax({
                 url: "https://api.openweathermap.org/data/2.5/forecast?q="+searchInput+"&units=imperial&appid=da0d8ead8e11a7c6ac8547cdc2d96e73",
@@ -125,7 +142,22 @@ $(document).ready(function(){
                 method: "get"
             }).then(function(response){
                 $(".uvIndex").html("UV Index: ");
-                $(".uvIndexIcon").html(response.value);
+                $(".uvIndexIcon").html(response.value);                
+                if(response.value>0&&response.value<2){
+                    $(".uvIndexIcon").css("background-color","#209700");
+                }
+                if(response.value>=2&&response.value<6){
+                    $(".uvIndexIcon").css("background-color","#f8e600");
+                }
+                if(response.value>=6&&response.value<8){
+                    $(".uvIndexIcon").css("background-color","#fb5800");
+                }
+                if(response.value>=8&&response.value<11){
+                    $(".uvIndexIcon").css("background-color","#db0000");
+                }
+                if(response.value>=11){
+                    $(".uvIndexIcon").css("background-color","6b43cb");
+                }
                 }).then(function(){
                     $.ajax({
                     url: "https://api.openweathermap.org/data/2.5/forecast?q=Atlanta&units=imperial&appid=da0d8ead8e11a7c6ac8547cdc2d96e73",
@@ -182,6 +214,7 @@ $(document).ready(function(){
         event.preventDefault();
         searchInput = event.target.innerHTML;
         searchInputArray.push(searchInput);
+        localStorage.setItem("searchHistory",searchInputArray);
         $.ajax({
             url: "https://api.openweathermap.org/data/2.5/weather?q="+searchInput+"&units=imperial&appid=da0d8ead8e11a7c6ac8547cdc2d96e73",
             method: "get"
@@ -197,7 +230,23 @@ $(document).ready(function(){
                 url: "https://api.openweathermap.org/data/2.5/uvi?appid=da0d8ead8e11a7c6ac8547cdc2d96e73&units=imperial&lat="+latitude+"&lon="+longitude,
                 method: "get"
             }).then(function(response){
-                $(".uvIndex").html("UV Index: "+response.value);
+                $(".uvIndex").html("UV Index: ");
+                $(".uvIndexIcon").html(response.value);                
+                if(response.value>0&&response.value<2){
+                    $(".uvIndexIcon").css("background-color","#209700");
+                }
+                if(response.value>=2&&response.value<6){
+                    $(".uvIndexIcon").css("background-color","#f8e600");
+                }
+                if(response.value>=6&&response.value<8){
+                    $(".uvIndexIcon").css("background-color","#fb5800");
+                }
+                if(response.value>=8&&response.value<11){
+                    $(".uvIndexIcon").css("background-color","#db0000");
+                }
+                if(response.value>=11){
+                    $(".uvIndexIcon").css("background-color","6b43cb");
+                }
             }).then(function(response){
                 $.ajax({
                     url: "https://api.openweathermap.org/data/2.5/forecast?q="+searchInput+"&units=imperial&appid=da0d8ead8e11a7c6ac8547cdc2d96e73",
@@ -267,12 +316,6 @@ $(document).ready(function(){
         newButton.textContent = searchInput;
         $(newButton).addClass("btn btn-dark col-12 searchButton");
         $(newForm).prepend(newButton);
-        /*
-            var newButton = document.createElement("button");
-            newButton.textContent = searchInputArray[0][i];
-            $(newButton).addClass("btn btn-dark col-12 searchButton");
-            $(newForm).append(newButton);
-        */
         localStorage.setItem("searchHistory",searchInputArray);
         $.ajax({
             url: "https://api.openweathermap.org/data/2.5/weather?q="+searchInput+"&units=imperial&appid=da0d8ead8e11a7c6ac8547cdc2d96e73",
@@ -289,7 +332,23 @@ $(document).ready(function(){
                 url: "https://api.openweathermap.org/data/2.5/uvi?appid=da0d8ead8e11a7c6ac8547cdc2d96e73&units=imperial&lat="+latitude+"&lon="+longitude,
                 method: "get"
             }).then(function(response){
-                $(".uvIndex").html("UV Index: "+response.value);
+                $(".uvIndex").html("UV Index: ");
+                $(".uvIndexIcon").html(response.value);                
+                if(response.value>0&&response.value<2){
+                    $(".uvIndexIcon").css("background-color","#209700");
+                }
+                if(response.value>=2&&response.value<6){
+                    $(".uvIndexIcon").css("background-color","#f8e600");
+                }
+                if(response.value>=6&&response.value<8){
+                    $(".uvIndexIcon").css("background-color","#fb5800");
+                }
+                if(response.value>=8&&response.value<11){
+                    $(".uvIndexIcon").css("background-color","#db0000");
+                }
+                if(response.value>=11){
+                    $(".uvIndexIcon").css("background-color","6b43cb");
+                }
                 }).then(function(){
                 $.ajax({
                     url: "https://api.openweathermap.org/data/2.5/forecast?q="+searchInput+"&units=imperial&appid=da0d8ead8e11a7c6ac8547cdc2d96e73",
@@ -375,7 +434,23 @@ $(document).ready(function(){
                 url: "https://api.openweathermap.org/data/2.5/uvi?appid=da0d8ead8e11a7c6ac8547cdc2d96e73&units=imperial&lat="+latitude+"&lon="+longitude,
                 method: "get"
             }).then(function(response){
-            $(".uvIndex").html("UV Index: "+response.value);
+                $(".uvIndex").html("UV Index: ");
+                $(".uvIndexIcon").html(response.value);                
+                if(response.value>0&&response.value<2){
+                    $(".uvIndexIcon").css("background-color","#209700");
+                }
+                if(response.value>=2&&response.value<6){
+                    $(".uvIndexIcon").css("background-color","#f8e600");
+                }
+                if(response.value>=6&&response.value<8){
+                    $(".uvIndexIcon").css("background-color","#fb5800");
+                }
+                if(response.value>=8&&response.value<11){
+                    $(".uvIndexIcon").css("background-color","#db0000");
+                }
+                if(response.value>=11){
+                    $(".uvIndexIcon").css("background-color","6b43cb");
+                }
             }).then(function(){
                 $.ajax({
                     url: "https://api.openweathermap.org/data/2.5/forecast?q="+searchInput+"&units=imperial&appid=da0d8ead8e11a7c6ac8547cdc2d96e73",
