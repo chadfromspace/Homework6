@@ -88,6 +88,10 @@ navbar{
     border-radius: 10px;
 }
 
+ul{
+    display: contents;
+}
+
 .uvIndexItems{
     display: flex;
 }
