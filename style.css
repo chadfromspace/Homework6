@@ -37,6 +37,19 @@ body{
     display: flex;
 }
 
+.card{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.card-text{
+    font-size: 14px;
+}
+
+.card-title{
+    font-size: 17px;
+}
+
 .currentCity{
     font-size: 40px;
 }
