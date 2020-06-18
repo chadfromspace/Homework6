@@ -20,7 +20,6 @@ $(document).ready(function(){
     //Initial page setup; defaults to Atlanta.
     if(localStorage.getItem("searchHistory")){
         searchInputArray.push(localStorage.getItem("searchHistory").split(","));
-        console.log(searchInputArray)
         searchInput = searchInputArray[0][searchInputArray[0].length-1];
         for(i=0;i<searchInputArray[0].length;i++){
             var newButton = document.createElement("button");
@@ -32,17 +31,7 @@ $(document).ready(function(){
             url: "https://api.openweathermap.org/data/2.5/weather?q="+searchInput+"&units=imperial&appid=da0d8ead8e11a7c6ac8547cdc2d96e73",
             method: "get"
         }).then(function(response){
-        var currentCity1 = searchInputArray[0][searchInputArray.length-1];
-        var currentCityArray = [];
-        for(i=0;i<currentCityArray.length;i++){
-            if(i===0){
-                currentCityArray.push(currentCity1[i].toUpperCase());
-            } else{
-                currentCityArray.push(currentCity1[i].toLowerCase());
-            }
-        }
-        var currentCity2 = currentCityArray.join(",").replace(/,/g,"");
-        $(".currentCity").html(currentCity2);
+        $(".currentCity").html(searchInput);
         $(".cityTemperature").html("Temperature: "+response.main.temp+" &degF");
         $(".humidity").html("Humidity: "+response.main.humidity+"%");
         $(".windSpeed").html("Wind Speed: "+response.wind.speed+" MPH");
@@ -76,17 +65,6 @@ $(document).ready(function(){
                 method: "get"
                 }).then(function(response){
                     $(".currentCity").html(searchInput+" ("+currentDay+")");
-                    var currentCity1 = searchInput;
-                    var currentCityArray = [];
-                    for(i=0;i<currentCity1.length;i++){
-                    if(i===0){
-                            currentCityArray.push(currentCity1[i].toUpperCase());
-                        } else{
-                            currentCityArray.push(currentCity1[i].toLowerCase());
-                        }
-                    }
-                    var currentCity2 = currentCityArray.join(",").replace(/,/g,"");
-                    $(".currentCity").html(currentCity2+" ("+currentDay+")");
                     //Five day forecast 1.
                     $(".fiveDayDate1").html(nextDay);
                     var newImage = document.createElement("img");
@@ -163,8 +141,7 @@ $(document).ready(function(){
                     url: "https://api.openweathermap.org/data/2.5/forecast?q=Atlanta&units=imperial&appid=da0d8ead8e11a7c6ac8547cdc2d96e73",
                     method: "get"
                     }).then(function(response){
-                    var currentCity2 = "Atlanta";
-                    $(".currentCity").html(currentCity2+" ("+currentDay+")");
+                    $(".currentCity").html("Atlanta"+" ("+currentDay+")");
                     $(".weatherIcon1").html("");
                     $(".weatherIcon2").html("");
                     $(".weatherIcon3").html("");
@@ -252,17 +229,7 @@ $(document).ready(function(){
                     url: "https://api.openweathermap.org/data/2.5/forecast?q="+searchInput+"&units=imperial&appid=da0d8ead8e11a7c6ac8547cdc2d96e73",
                     method: "get"
                 }).then(function(response){
-                    var currentCity1 = searchInput;
-                    var currentCityArray = [];
-                    for(i=0;i<currentCity1.length;i++){
-                        if(i===0){
-                            currentCityArray.push(currentCity1[i].toUpperCase());
-                        } else{
-                            currentCityArray.push(currentCity1[i].toLowerCase());
-                        }
-                    }
-                    var currentCity2 = currentCityArray.join(",").replace(/,/g,"");
-                    $(".currentCity").html(currentCity2+" ("+currentDay+")");
+                    $(".currentCity").html(searchInput+" ("+currentDay+")");
                     $(".weatherIcon1").html("");
                     $(".weatherIcon2").html("");
                     $(".weatherIcon3").html("");
@@ -324,7 +291,6 @@ $(document).ready(function(){
             $(".cityTemperature").html("Temperature: "+response.main.temp+" &degF");
             $(".humidity").html("Humidity: "+response.main.humidity+"%");
             $(".windSpeed").html("Wind Speed: "+response.wind.speed+" MPH");
-            //$(".uvIndex").attr("src","http://openweathermap.org/img/w/" + response.weather[0].icon +".png");
             longitude = response.coord.lon;
             latitude = response.coord.lat;
         }).then(function(){
@@ -354,17 +320,7 @@ $(document).ready(function(){
                     url: "https://api.openweathermap.org/data/2.5/forecast?q="+searchInput+"&units=imperial&appid=da0d8ead8e11a7c6ac8547cdc2d96e73",
                     method: "get"
                 }).then(function(response){
-                    var currentCity1 = searchInput;
-                    var currentCityArray = [];
-                    for(i=0;i<currentCity1.length;i++){
-                        if(i===0){
-                            currentCityArray.push(currentCity1[i].toUpperCase());
-                        } else{
-                            currentCityArray.push(currentCity1[i].toLowerCase());
-                        }
-                    }
-                    var currentCity2 = currentCityArray.join(",").replace(/,/g,"");
-                    $(".currentCity").html(currentCity2+" ("+currentDay+")");
+                    $(".currentCity").html(searchInput+" ("+currentDay+")");
                     $(".weatherIcon1").html("");
                     $(".weatherIcon2").html("");
                     $(".weatherIcon3").html("");
@@ -456,17 +412,7 @@ $(document).ready(function(){
                     url: "https://api.openweathermap.org/data/2.5/forecast?q="+searchInput+"&units=imperial&appid=da0d8ead8e11a7c6ac8547cdc2d96e73",
                     method: "get"
                 }).then(function(response){
-                    var currentCity1 = searchInput;
-                    var currentCityArray = [];
-                    for(i=0;i<currentCity1.length;i++){
-                        if(i===0){
-                            currentCityArray.push(currentCity1[i].toUpperCase());
-                        } else{
-                            currentCityArray.push(currentCity1[i].toLowerCase());
-                        }
-                    }
-                    var currentCity2 = currentCityArray.join(",").replace(/,/g,"")
-                    $(".currentCity").html(currentCity2+" ("+currentDay+")");
+                    $(".currentCity").html(searchInput+" ("+currentDay+")");
                     $(".weatherIcon1").html("");
                     $(".weatherIcon2").html("");
                     $(".weatherIcon3").html("");
