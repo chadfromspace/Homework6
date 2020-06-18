@@ -1,6 +1,6 @@
 # Weather Dashboard  
 ---  
-## Incredible weather dashboard that's almost nothing like weather.com.
+## Incredible weather dashboard that's almost nothing like Weather.com.
 ---  
 ![Image](img.png)  
 ---  
