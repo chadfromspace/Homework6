@@ -57,7 +57,11 @@ li{
     list-style-type: none;
 }
 
-navbar{
+.mainCard{
+    padding: 10px;
+}
+
+.navbar{
     background-color: rgb(0, 83, 109);
     color: white;
     display: flex;
@@ -74,6 +78,10 @@ navbar{
 .searchIcon{
 
     height: 39px;
+}
+
+.titleUV{
+    padding-left: 10px;
 }
 
 .uvIndex{
