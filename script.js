@@ -31,7 +31,10 @@ $(document).ready(function(){
             url: "https://api.openweathermap.org/data/2.5/weather?q="+searchInput+"&units=imperial&appid=da0d8ead8e11a7c6ac8547cdc2d96e73",
             method: "get"
         }).then(function(response){
-        $(".currentCity").html(searchInput);
+        var newImage = document.createElement("img");
+        $(newImage).attr("src","http://openweathermap.org/img/w/" + response.weather[0].icon +".png");
+        $(".currentCity").html(response.name+" ("+currentDay+")");
+        $(".currentCity").append(newImage);
         $(".cityTemperature").html("Temperature: "+response.main.temp+" &degF");
         $(".humidity").html("Humidity: "+response.main.humidity+"%");
         $(".windSpeed").html("Wind Speed: "+response.wind.speed+" MPH");
@@ -64,7 +67,6 @@ $(document).ready(function(){
                 url: "https://api.openweathermap.org/data/2.5/forecast?q="+searchInput+"&units=imperial&appid=da0d8ead8e11a7c6ac8547cdc2d96e73",
                 method: "get"
                 }).then(function(response){
-                    $(".currentCity").html(searchInput+" ("+currentDay+")");
                     //Five day forecast 1.
                     $(".fiveDayDate1").html(nextDay);
                     var newImage = document.createElement("img");
@@ -108,7 +110,10 @@ $(document).ready(function(){
             url: "https://api.openweathermap.org/data/2.5/weather?q=Atlanta&units=imperial&appid=da0d8ead8e11a7c6ac8547cdc2d96e73",
             method: "get"
         }).then(function(response){
-            $(".currentCity").html("Atlanta"+" ("+currentDay+")");
+            var newImage = document.createElement("img");
+            $(newImage).attr("src","http://openweathermap.org/img/w/" + response.weather[0].icon +".png");
+            $(".currentCity").html("Atlanta"+"("+currentDay+")");
+            $(".currentCity").append(newImage);
             $(".cityTemperature").html("Temperature: "+response.main.temp+" &degF");
             $(".humidity").html("Humidity: "+response.main.humidity+"%");
             $(".windSpeed").html("Wind Speed: "+response.wind.speed+" MPH");
@@ -141,7 +146,6 @@ $(document).ready(function(){
                     url: "https://api.openweathermap.org/data/2.5/forecast?q=Atlanta&units=imperial&appid=da0d8ead8e11a7c6ac8547cdc2d96e73",
                     method: "get"
                     }).then(function(response){
-                    $(".currentCity").html("Atlanta"+" ("+currentDay+")");
                     $(".weatherIcon1").html("");
                     $(".weatherIcon2").html("");
                     $(".weatherIcon3").html("");
@@ -195,7 +199,11 @@ $(document).ready(function(){
         $.ajax({
             url: "https://api.openweathermap.org/data/2.5/weather?q="+searchInput+"&units=imperial&appid=da0d8ead8e11a7c6ac8547cdc2d96e73",
             method: "get"
-        }).then(function(response){            
+        }).then(function(response){
+            var newImage = document.createElement("img");
+            $(newImage).attr("src","http://openweathermap.org/img/w/" + response.weather[0].icon +".png");
+            $(".currentCity").html(response.name+" ("+currentDay+")");
+            $(".currentCity").append(newImage);
             $(".cityTemperature").html("Temperature: "+response.main.temp+" &degF");
             $(".humidity").html("Humidity: "+response.main.humidity+"%");
             $(".windSpeed").html("Wind Speed: "+response.wind.speed+" MPH");
@@ -229,7 +237,6 @@ $(document).ready(function(){
                     url: "https://api.openweathermap.org/data/2.5/forecast?q="+searchInput+"&units=imperial&appid=da0d8ead8e11a7c6ac8547cdc2d96e73",
                     method: "get"
                 }).then(function(response){
-                    $(".currentCity").html(searchInput+" ("+currentDay+")");
                     $(".weatherIcon1").html("");
                     $(".weatherIcon2").html("");
                     $(".weatherIcon3").html("");
@@ -287,7 +294,11 @@ $(document).ready(function(){
         $.ajax({
             url: "https://api.openweathermap.org/data/2.5/weather?q="+searchInput+"&units=imperial&appid=da0d8ead8e11a7c6ac8547cdc2d96e73",
             method: "get"
-        }).then(function(response){            
+        }).then(function(response){
+            var newImage = document.createElement("img");
+            $(newImage).attr("src","http://openweathermap.org/img/w/" + response.weather[0].icon +".png");
+            $(".currentCity").html(response.name+" ("+currentDay+")");
+            $(".currentCity").append(newImage);
             $(".cityTemperature").html("Temperature: "+response.main.temp+" &degF");
             $(".humidity").html("Humidity: "+response.main.humidity+"%");
             $(".windSpeed").html("Wind Speed: "+response.wind.speed+" MPH");
@@ -320,7 +331,6 @@ $(document).ready(function(){
                     url: "https://api.openweathermap.org/data/2.5/forecast?q="+searchInput+"&units=imperial&appid=da0d8ead8e11a7c6ac8547cdc2d96e73",
                     method: "get"
                 }).then(function(response){
-                    $(".currentCity").html(searchInput+" ("+currentDay+")");
                     $(".weatherIcon1").html("");
                     $(".weatherIcon2").html("");
                     $(".weatherIcon3").html("");
@@ -379,7 +389,11 @@ $(document).ready(function(){
         $.ajax({
             url: "https://api.openweathermap.org/data/2.5/weather?q="+searchInput+"&units=imperial&appid=da0d8ead8e11a7c6ac8547cdc2d96e73",
             method: "get"
-        }).then(function(response){            
+        }).then(function(response){
+            var newImage = document.createElement("img");
+            $(newImage).attr("src","http://openweathermap.org/img/w/" + response.weather[0].icon +".png");
+            $(".currentCity").html(response.name+" ("+currentDay+")");
+            $(".currentCity").append(newImage);
             $(".cityTemperature").html("Temperature: "+response.main.temp+" &degF");
             $(".humidity").html("Humidity: "+response.main.humidity+"%");
             $(".windSpeed").html("Wind Speed: "+response.wind.speed+" MPH");
@@ -412,7 +426,6 @@ $(document).ready(function(){
                     url: "https://api.openweathermap.org/data/2.5/forecast?q="+searchInput+"&units=imperial&appid=da0d8ead8e11a7c6ac8547cdc2d96e73",
                     method: "get"
                 }).then(function(response){
-                    $(".currentCity").html(searchInput+" ("+currentDay+")");
                     $(".weatherIcon1").html("");
                     $(".weatherIcon2").html("");
                     $(".weatherIcon3").html("");
